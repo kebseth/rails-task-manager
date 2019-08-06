@@ -2,11 +2,9 @@
 <ul>
   <% @tasks.each do |task| %>
   <li>
-    <%= form_for task do |f| %>
-      <%= f.check_box :completed %>
+      <%= check_box_tag :completed, 1, task.completed, disabled: true %>
       <%= link_to task.title, task_path(task) %>
       <%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure ?'} %>
-    <% end %>
   <% end %>
   </li>
 </ul>

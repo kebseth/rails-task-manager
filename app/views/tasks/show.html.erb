@@ -1,12 +1,8 @@
 <h1><%= @task.title %></h1>
 <div>
-  <p>
-    <%= @task.details %>
-    <%= form_for @task do |f| %>
-        <%= f.check_box :completed %>
-        <%= @check %>
-      <% end %>
-  </p>
+    <%= @task.details %> <br>
+    <%= check_box_tag :completed, 1, @task.completed, disabled: true %>
+    <%= @check %>
   <p>
     <%= link_to 'Edit this task', edit_task_path(@task) %>
   </p>
