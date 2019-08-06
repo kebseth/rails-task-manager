@@ -1,0 +1,13 @@
+<h1>Tasks manager</h1>
+<ul>
+  <% @tasks.each do |task| %>
+  <li>
+    <%= form_for task do |f| %>
+      <%= f.check_box :completed %>
+      <%= link_to task.title, task_path(task) %>
+      <%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure ?'} %>
+    <% end %>
+  <% end %>
+  </li>
+</ul>
+<%= link_to 'Add a new task', new_task_path %>
